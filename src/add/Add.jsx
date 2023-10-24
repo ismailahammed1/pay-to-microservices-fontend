@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./Add"
 const Add = () => {
   return (
-    <div>Add</div>
+    <div className='add'>Add</div>
   )
 }
 
