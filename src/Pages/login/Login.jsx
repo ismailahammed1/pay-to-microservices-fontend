@@ -1,8 +1,8 @@
 import React from 'react'
-import "./Loging"
+
 const Login = () => {
   return (
-    <div className='login'>Login</div>
+    <div>Login</div>
   )
 }
 

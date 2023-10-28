@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Navbar.scss";
 
 const Navbar = () => {
@@ -24,29 +25,29 @@ const Navbar = () => {
     <div className={active?"navbar active":"navbar"}>
         <div className='container'>
             <div className='logo'>
-                <span>Pay2Micro-servicec</span>
+                <Link to="/">Pay2Micro-servicec</Link>
             </div>
             <div className='links'>
-            <span>Business</span>
-            <span>explore</span>
-            <span>English</span>  
+            <Link to="/">Business</Link>
+            <Link to="/">explore</Link>
+            <Link to="/">English</Link>  
             <button>Sign in</button>
-           {!currentUser ?.isSeller && <span>Become a Seller</span>} 
+           {!currentUser ?.isSeller && <Link to="/">Become a Seller</Link>} 
             {!currentUser &&<button>Join</button> }
             {currentUser && (
              <div className='user' onClick={()=>setOpen(!open)}>
                <img src=''alt=''/>
-              <span>{currentUser?.username}</span>
+              <Link to="">{currentUser?.username}</Link>
               {open &&  <div className='options'>
            {currentUser?.isSeller&&(
                   <>
-                  <span>Gigs</span>
-                  <span>Add New Gig</span>
+                  <Link to="/mygigs">Gigs</Link>
+                  <Link to="/add">Add New Gig</Link>
                   </>
                 )}
-                <span>Order</span>
-                <span>Messages</span>
-                <span>Logout</span>
+                <Link to="/orders">Order</Link>
+                <Link to="/messages">Messages</Link>
+                <Link to="/">Logout</Link>
               </div>}
              </div>
             )}
@@ -56,9 +57,9 @@ const Navbar = () => {
         {active && (<>
         <hr />
              <div className='menu'>
-              <span>test 1</span>
-              <span>test 2</span>
-              <span>test 3</span>
+              <Link to="">test 1</Link>
+              <Link to="">test 2</Link>
+              <Link to="">test 3</Link>
              </div>
              </>
 )}

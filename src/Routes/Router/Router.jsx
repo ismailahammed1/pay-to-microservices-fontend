@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../../Layout/MainLayout";
-import Add from "../../add/Add";
-import Gig from "../../gig/Gig";
-import Gigs from "../../gigs/Gigs";
-import Home from "../../home/Home";
-import Login from "../../login/Login";
-import MyGigs from "../../myGigs/MyGigs";
-import Orders from "../../orders/Orders";
-import Register from "../../register/Register";
+import MainLayout from "../../Pages/Layout/MainLayout";
+import Add from "../../Pages/add/Add";
+import Gig from "../../Pages/gig/Gig";
+import Gigs from "../../Pages/gigs/Gigs";
+import Home from "../../Pages/home/Home";
+import Login from "../../Pages/login/Login";
+import Message from "../../Pages/message/Message";
+import Messages from "../../Pages/messages/Messages";
+import MyGigs from "../../Pages/myGigs/MyGigs";
+import Orders from "../../Pages/orders/Orders";
+import Register from "../../Pages/register/Register";
 
 
 const router = createBrowserRouter([
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<Home/>
+                element:<Home></Home>
             },
             {
                 path:"/gigs",
@@ -28,13 +30,23 @@ const router = createBrowserRouter([
                 element:<Gig/>
             },
             {
-                path:"/login",
-                element:<Login/>
+                path:"/message",
+                element:<Message/>
             },
+            {
+                path:"/messages",
+                element:<Messages/>
+            },
+    
             {
                 path:"/register",
                 element:<Register/>
             },
+            {
+                path: "/login",
+                element: <Login/>
+            },
+            
             {
                 path:"/add",
                 element:<Add/>
@@ -42,14 +54,6 @@ const router = createBrowserRouter([
             {
                 path:"/orders",
                 element:<Orders/>
-            },
-            {
-                path:"/message",
-                element:<Message/>
-            },
-            {
-                path:"/messages",
-                element:<Messages/>
             },
             {
                 path:"/mygigs",
