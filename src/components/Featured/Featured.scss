@@ -1,5 +1,19 @@
 .featured {
   .container {
-    color: aquamarine;
+    width: 1400px;
+    display: flex;
+    align-items: center;
+    .left {
+      display: flex;
+      font-display: column;
+      gap: 30px;
+      h1 {
+        font-style: 50px;
+        span {
+          font-style: italic;
+          font-weight: 300;
+        }
+      }
+    }
   }
 }

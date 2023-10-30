@@ -14,6 +14,7 @@ const Featured = () => {
       </div>
         </div>
         <div className="right"></div>
+        
       </div>
     </div>
   );
