@@ -60,7 +60,7 @@ const Navbar = () => {
         <>
           <hr />
           <div className="menu">
-            <Link to="/">Graphics & Design</Link>
+            <Link to="/">Plumber</Link>
             <Link to="/">Video & Animation</Link>
             <Link to="/">Writing & Translation</Link>
             <Link to="/">AI Services</Link>
