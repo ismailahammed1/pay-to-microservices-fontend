@@ -1,59 +1,79 @@
 .featured {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  background-color: #013914;
+  color: #fff;
+
   .container {
     width: 1400px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+
     .left {
       display: flex;
-      font-display: column;
+      flex-direction: column;
+      width: 700px;
       gap: 30px;
+
       h1 {
-        font-style: 50px;
+        font-size: 50px;
         span {
           font-style: italic;
           font-weight: 300;
         }
       }
+
       .search {
         background-color: #fff;
         border-radius: 5px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         overflow: hidden;
+
         .searchInput {
           display: flex;
           align-items: center;
           gap: 10px;
+
           img {
             width: 20px;
             height: 20px;
             margin: 10px;
           }
+
           input {
             border: none;
             outline: none;
+
             &::placeholder {
               color: gray;
             }
           }
         }
-        buttom {
+
+        button {
           width: 120px;
           height: 50px;
           border: none;
-          background-color: #1bff73;
+          background-color: #15a04b;
           color: #fff;
           align-self: flex-end;
           cursor: pointer;
         }
       }
+
       .popular {
         display: flex;
         align-items: center;
         gap: 10px;
+
         span {
           width: max-content;
         }
+
         button {
           width: max-content;
           color: white;
@@ -62,14 +82,52 @@
           border-radius: 20px;
           background-color: transparent;
           font-size: 14px;
+          cursor: pointer;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 100%; // Make the left element take full width on mobile
+        padding: 20px; // Add padding for better mobile layout
+        text-align: center; // Center-align text on mobile
+        h1 {
+          font-size: 36px; // Adjust font size for mobile
+        }
+
+        .search {
+          .searchInput {
+            flex-direction: column; // Stack input and button vertically on mobile
+            gap: 10px; // Add vertical gap between input and button
+          }
+          button {
+            width: 100%; /* Make the button full width on mobile */
+            max-width: 200px; /* Limit the maximum width for better mobile layout */
+            height: 40px; /* Adjust the button height for mobile */
+            font-size: 16px; /* Adjust the font size for mobile */
+          }
+        }
+
+        .popular {
+          flex-direction: column; // Stack elements vertically on mobile
+          gap: 10px; // Add vertical gap between elements
+
+          button {
+            width: 100%; // Make the button full width on mobile
+          }
         }
       }
     }
+
     .right {
       height: 100%;
+
       img {
         height: 100%;
         object-fit: contain;
+      }
+
+      @media screen and (max-width: 768px) {
+        display: none; // Hide the right element on smaller screens (mobile)
       }
     }
   }

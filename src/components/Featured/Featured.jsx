@@ -11,7 +11,7 @@ const Featured = () => {
           </h1>
           <div className="search">
             <div className="searchInput">
-              <img src="" alt="" />
+              <img src="../../../public/img/pngwing.com.png" alt="" />
               <input type="text" placeholder='Try"TO building mobile app"' />
             </div>
             <button>Search</button>
@@ -26,7 +26,7 @@ const Featured = () => {
         </div>
 
         <div className="right">
-        <img src="" alt="" />
+        <img src="../../../public/img/elec.png" alt="" />
         </div>
       </div>
     </div>
