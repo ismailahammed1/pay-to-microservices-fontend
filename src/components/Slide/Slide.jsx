@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const Slide = () => {
+const Slide = ({children, slidesToShow,arrowsScroll}) => {
   return (
-    <div className='slide'>Slide</div>
+    <div className='slide'>
+        <div className='container'>
+<Slide slidesToShow={slidesToShow} arrowsScroll={arrowsScroll}></Slide>
+        </div>
+    </div>
   )
 }
 
