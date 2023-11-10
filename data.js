@@ -8,7 +8,7 @@ export const card=[
         location: "New York",
         hourlyRate: "$25",
         availability: "Full-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699481604/Carpenter-1_wtzlxd.jpg"
+        img:"./public/slideimg/carpenter.jpg"
       },
       {
         id: 2,
@@ -18,7 +18,7 @@ export const card=[
         location: "Los Angeles",
         hourlyRate: "$20",
         availability: "Part-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699481659/download_ud1iod.jpg"
+        img:"./public/slideimg/as_sdis.jpg"
       },
       {
         id: 3,
@@ -28,7 +28,7 @@ export const card=[
         location: "Chicago",
         hourlyRate: "$30",
         availability: "Full-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699482199/gardener-job-description-1659711272_cncxo9_mxx33o.webp"
+        img:"./public/slideimg/gardener-job-description-1659711272_cncxo9_mxx33o.jpg"
       },
       {
         id: 4,
@@ -38,7 +38,7 @@ export const card=[
         location: "Houston",
         hourlyRate: "$18",
         availability: "Full-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699481786/1028379220Nanny_gbbwth.webp"
+        img:"./public/slideimg/1028379220Nanny_gbbwth.jpg"
       },
       {
         id: 5,
@@ -48,7 +48,7 @@ export const card=[
         location: "Miami",
         hourlyRate: "$35",
         availability: "Part-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699481789/download_riruin.jpg"
+        img:"./public/slideimg/as_is.jpg"
       },
       {
         id: 6,
@@ -58,7 +58,7 @@ export const card=[
         location: "San Francisco",
         hourlyRate: "$22",
         availability: "Full-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699481843/senior-man-with-helpful-volunteer-in-the-garden-LMJAN27_yg3fzb.webp"
+        img:"./public/slideimg/senior-man-with-helpful-volunteer-in-the-garden.jpg"
       },
       {
         id: 7,
@@ -68,7 +68,7 @@ export const card=[
         location: "Seattle",
         hourlyRate: "$15",
         availability: "Part-time",
-        img:"https://res.cloudinary.com/dfn1s2ysa/img/upload/v1699481519/girl-5_sx7bot.png"
+        img:"./public/slideimg/girl-5.png"
       }
     ]
 
