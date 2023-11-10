@@ -1,14 +1,19 @@
-import React from 'react'
-import Featured from '../../components/Featured/Featured'
-import TrustedBy from '../../components/TrustedBy/TrustedBy'
-import "./Home"
+import React from "react";
+
+import Featured from "../../components/Featured/Featured";
+import Slide from "../../components/Slide/Slide";
+import TrustedBy from "../../components/TrustedBy/TrustedBy";
+import "./Home";
 const Home = () => {
   return (
-    <div className='home'>
-      <Featured/>
-      <TrustedBy/>
+    <div className="home">
+      <Featured />
+      <TrustedBy />
+      <Slide >
+      
+      </Slide>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
