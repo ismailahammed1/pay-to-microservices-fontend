@@ -4,7 +4,6 @@ import '../Catcard/Catcard.scss';
 
 const Catcard = ({ item }) => {
   const linkTo = `/gig?cat=${item.category}`;
-  console.log('Generated Link:', linkTo);
 
   return (
     <Link to={linkTo}>
