@@ -7,7 +7,7 @@ const Featured = () => {
       <div className="container">
         <div className="left">
           <h1>
-            Find the right service right <span>plamber</span> & right away
+            Find the right service right <span>Worker</span> & right away
           </h1>
           <div className="search">
             <div className="searchInput">
@@ -17,16 +17,16 @@ const Featured = () => {
             <button>Search</button>
           </div>
           <div className="popular">
-            <button>popular</button>
-            <button>plamber</button>
-            <button>plamber</button>
-            <button>plamber</button>
-            <button>plamber</button>
+            <button>Popular</button>
+            <button>Carpenter</button>
+            <button>Housekeeper</button>
+            <button>Pet Sitter</button>
+            <button>Electricians</button>
           </div>
         </div>
 
         <div className="right">
-        <img src="../../../public/img/elec.png" alt="" />
+        <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699739353/pay2saleServices/worker/pngwing.com_1_ignkvk.png" alt="" />
         </div>
       </div>
     </div>
