@@ -1,22 +1,44 @@
-.catCard {
+.catcard {
   width: 252px;
   height: 344px;
   color: white;
+  position: relative;
   border-radius: 5px;
   cursor: pointer;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
+    opacity: 0.9; // Set the desired opacity for the image
   }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+      0,
+      0,
+      0,
+      0.3
+    ); // Adjust the last value for the darkness of the overlay
+    border-radius: 5px;
+  }
+
   .name {
     font-weight: 300;
     position: absolute;
+    font-weight: bold;
     top: 15px;
     left: 15px;
   }
   .category {
     position: absolute;
+
     top: 40px;
     left: 15px;
     font-size: 24px;

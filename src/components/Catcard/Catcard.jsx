@@ -9,6 +9,11 @@ const Catcard = ({ item }) => {
     <Link to={linkTo}>
       <div className='catcard'>
         <img src={item.img} alt="" />
+
+        <div className='overlay'>
+          <span className='category'>{item.category}</span>
+          <span className='name'>{item.name}</span>
+        </div>
       </div>
     </Link>
   );
