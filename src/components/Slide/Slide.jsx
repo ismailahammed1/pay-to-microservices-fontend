@@ -1,4 +1,5 @@
-import Slider from 'infinite-react-carousel';
+
+import { Slider } from 'infinite-react-carousel';
 import React from 'react';
 import './Slide.scss';
 

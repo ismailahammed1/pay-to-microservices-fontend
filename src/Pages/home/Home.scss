@@ -97,26 +97,3 @@
 //     }
 //   }
 // }
-.home {
-  .features {
-    background-color: #f1fdf7;
-    display: flex;
-    justify-content: center;
-    padding: 100px 0;
-
-    .container {
-      width: 1400px; // Set the width of the features container
-      display: flex;
-      flex-direction: column;
-
-      // ... rest of your styles
-
-      .video-box {
-        width: 100%;
-        video {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
