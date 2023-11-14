@@ -72,4 +72,63 @@ export const card=[
       }
     ]
 
+  export const project=[
+    {
+      id: 1,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966412/pexels-photo-9607118_fzx7xn.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966866/download_byyst4.jpg",
+      cat: "car-repair",
+      username: "Md. Ismail Ahammed"
+    },
+    {
+      id: 2,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966536/pexels-photo-3762813_n7mfik.webp",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966744/images_qetfo6.jpg",
+      cat: "Teacher",
+      username: "Md. Ismail Ahammed"
+    },
+    {
+      id: 3,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966556/pexels-photo-845434_hdpwgk.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966686/download_ui42mx.jpg",
+      cat: "Gardener",
+      username: "Md. Ismail Ahammed"
+    },
+ 
+    {
+      id: 4,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966379/pexels-photo-220453_hrlche.webp",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966605/download_vxfvms.jpg",
+      cat: "Electrician",
+      username: "Roman"
+    },
+    {
+      id: 5,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966425/pexels-photo-3762804_dxtjy5.webp",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966754/images_h9wr1o.jpg",
+      cat: "Hospital Services",
+      username: "Md. Ismail Ahammed"
+    },
+    {
+      id: 6,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966376/pexels-photo-4865526_lkkiap.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966192/plumber-rates-fixing-sink-pipe-Featured_lnh8eb.jpg",
+      cat: "Plumber",
+      username: "Md. Ismail Ahammed"
+    },
+    {
+      id: 7,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966546/pexels-photo-3184611_s7ajtr.webp",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966869/images_ujajq8.jpg",
+      cat: "construction ",
+      username: "Md. Ismail Ahammed"
+    },
+    {
+      id: 8,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966558/pexels-photo-927022_gjzie2.webp",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966684/painter-man-work-paint-roller-wall-painting-concept-70202402_mtfjz4.webp",
+      cat: "Painter",
+      username: "Md. Ismail Ahammed"
+    }
+  ]
   
