@@ -131,4 +131,78 @@ export const card=[
       username: "Md. Ismail Ahammed"
     }
   ]
+  export const gigs=[
+    {
+      id: 1,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061389/images_kjgzbl.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966425/pexels-photo-3762804_dxtjy5.webp",
+      cat: "Painter",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 150
+    },
+    {
+      id: 2,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061436/download_gknafp.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061443/images_pfxpwz.jpg",
+      cat: "Construction",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 156
+    },
+    {
+      id: 3,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700062034/images_xhicbw.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061456/download_jvik7k.jpg",
+      cat: "Car Repair",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 200
+    },
+    {
+      id: 4,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700062004/images_fmyd0n.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061559/images_eged3c.jpg",
+      cat: "Hospital Services",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 140
+    },
+    {
+      id: 5,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061967/download_nke4ni.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061331/images_wsrti0.jpg",
+      cat: "Plumber",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 156
+    },
+    {
+      id: 6,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061924/images_wy3glk.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061577/download_brdlle.jpg ",
+      cat: "Electrician",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 200
+    },
+    {
+      id: 7,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061863/images_c0ojok.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061701/gardening-and-agriculture-concept-young-woman-farm-worker-gardening-flowers-in-garden-gardener-planting-flowers-for-bouquet-summer-gardening-work-girl-gardening-at-home-in-backyard-photo_l0qjxv.jpg",
+      cat: "Gardener",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 140
+    },
+    {
+      id: 8,
+      pp: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061774/download_dsnekw.jpg",
+      img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700061703/istockphoto-1177608272-612x612_lgqcwr.jpg",
+      cat: "Teacher",
+      username: "Md. Ismail Ahammed",
+      star: 4,
+      price: 156
+    }
+  ]
   
