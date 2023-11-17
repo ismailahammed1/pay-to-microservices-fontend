@@ -60,13 +60,14 @@ const Navbar = () => {
         <>
           <hr />
           <div className="menu">
+            <Link to="/">Atoumobile Services</Link>
+            <Link to="/">Agricultural</Link>
+            <Link to="/">Carpenters</Link>
+            <Link to="/">Electricians</Link>
+            <Link to="/">Heavy Equipment Operators</Link>
+            <Link to="/">Transportation </Link>
+            <Link to="/">Construction  </Link>
             <Link to="/">Plumber</Link>
-            <Link to="/">Video & Animation</Link>
-            <Link to="/">Writing & Translation</Link>
-            <Link to="/">AI Services</Link>
-            <Link to="/">Digital Marketing</Link>
-            <Link to="/">Music & Audio</Link>
-            <Link to="/">Programming & Tech</Link>
           </div>
           <hr />
         </>

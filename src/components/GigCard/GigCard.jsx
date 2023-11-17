@@ -14,7 +14,7 @@ const GigCard = ({ item }) => {
           <p>{item.desc}</p>
           <div className="star">
             <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700063146/start_53876-25533_yhvo8x.avif" alt=""></img>
-            <span></span>
+            <span>{item.star}</span>
           </div>
           <hr/>
           <div className="detail">

@@ -33,7 +33,7 @@ const Featured = () => {
             <button>Search</button>
           </div>
           <div className="popular">
-            <button>Popular</button>
+            <button>Hardware</button>
             <button>Carpenter</button>
             <button>Housekeeper</button>
             <button>Pet Sitter</button>
