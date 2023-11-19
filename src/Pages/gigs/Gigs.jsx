@@ -22,7 +22,7 @@ const Gigs = () => {
         <span className="breadcrumbs">P2S &gt; car-repair &gt;</span>
         <h1>Car-Repair</h1>
         <p>
-          Explore the boundaries of services with Pay to Service's Car-Repair
+          Explore the boundaries of services with Pay2Micro-Service's Car-Repair
         </p>
         <div className="menu">
           <div className="left">

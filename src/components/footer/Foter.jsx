@@ -66,8 +66,8 @@ const Footer = () => {
         <hr />
         <div className="bottom">
           <div className="left">
-            <h2>Pay To Services</h2>
-            <span>Pay To Services Ldt. 2023</span>
+            <h2>Pay2Micro-servicec</h2>
+            <span>Pay2Micro-servicec Ldt. 2023</span>
           </div>
           <div className="right">
             <div className="social">

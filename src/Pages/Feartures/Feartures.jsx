@@ -43,7 +43,7 @@ const Features = () => {
       {/* -------features drak end--------- */}
       <div className="explorer">
         <div className="container">
-        <h1>Explore the Pay2Service Marketplace</h1>
+        <h1>Explore the Pay2Micro-servicec Marketplace</h1>
           <div className="items">
         
             <div className="item">
@@ -120,7 +120,7 @@ const Features = () => {
             <h1>Professional skilled person for Advanced solutions</h1>
             <div className="title">
               <AiOutlineCheckCircle className="icon" />
-              pay2services
+              Pay2Micro-servicec
             </div>
             <p>
               Able to access top staff and professional equipment for any
@@ -128,7 +128,7 @@ const Features = () => {
             </p>
             <div className="title">
               <AiOutlineCheckCircle className="icon" />
-              pay2services certified
+              Pay2Micro-servicec
             </div>
             <p>Create your own branded marketplace of certified experts.</p>
             <div className="title">

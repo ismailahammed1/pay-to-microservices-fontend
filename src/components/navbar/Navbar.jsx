@@ -38,7 +38,7 @@ const Navbar = () => {
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
               <img src="" alt="" />
-              <Link to="">{currentUser?.username}</Link>
+              <a >{currentUser?.username}</a>
               {open && (
                 <div className="options">
                   {currentUser?.isSeller && (

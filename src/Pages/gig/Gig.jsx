@@ -6,7 +6,7 @@ const Gig = () => {
     <div className="gig">
       <div className="container">
         <div className="left">
-          <span className="breadcrumbs">P2S &gt; car-repair &gt;</span>
+          <span className="breadcrumbs">Pay2Micro-servicec &gt; car-repair &gt;</span>
           <h1>I will solve Car problem</h1>
           <div className="user">
             <img
