@@ -37,7 +37,7 @@ const Navbar = () => {
           {!currentUser && <button>Join</button>}
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
-              <img src="" alt="" />
+              <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1694813815/samples/people/smiling-man.jpg" alt="" />
               <a >{currentUser?.username}</a>
               {open && (
                 <div className="options">
