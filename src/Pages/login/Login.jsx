@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import newRequest from "../../utils/newRequest";
 import "./Loging.scss";
 
 const Login = () => {
@@ -8,18 +8,21 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
+  const navigate=useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/login", {
-        username,
-        password
-      });
-console.log(res.data);
+      const res = await newRequest.post("/auth/login", { username, password });
+      console.log('API Response:', res.data);
+      localStorage.setItem("currentUser", JSON.stringify(res.data));
+      navigate('/');
     } catch (err) {
-      setError(err);
-      console.log(err);
+ 
+      setError(err.response.data);
+      console.error('Login Errorsdfaaaaaaaaa:', err.response.data);
     }
+    
   }
 
   return (
@@ -32,6 +35,7 @@ console.log(res.data);
         <input type="password" name="password" placeholder="johndoe@gmail.com" autoComplete="off" onChange={e => setPassword(e.target.value)} />
         <Link className='forget' to="/">Forget password</Link>
         <button type='submit'>Login</button>
+        {error&&error}
       </form>
     </div>
   );
