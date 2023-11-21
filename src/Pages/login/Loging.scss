@@ -1,10 +1,35 @@
 .login {
   display: flex;
   justify-content: center;
-  background-color: #413838;
-  from {
+  background-color: #beb9b9;
+  height: 600px;
+  padding: 0;
+  form {
     display: flex;
     justify-content: center;
+    gap: 20px;
     flex-direction: column;
+    .forget {
+      text-decoration: underline;
+    }
+    input {
+      border: 1px solid rgb(87, 159, 87);
+      width: 400px;
+      height: 40px;
+      border-radius: 5px;
+      font-weight: 600;
+
+      &::placeholder {
+        text-align: justify;
+      }
+    }
+    button {
+      background-color: #1dbf73;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 }
