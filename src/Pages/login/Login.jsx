@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await newRequest.post("/auth/login", { username, password });
-      console.log('API Response:', res.data);
+
       localStorage.setItem("currentUser", JSON.stringify(res.data));
       navigate('/');
     } catch (err) {
@@ -35,6 +35,7 @@ const Login = () => {
         <input type="password" name="password" placeholder="johndoe@gmail.com" autoComplete="off" onChange={e => setPassword(e.target.value)} />
         <Link className='forget' to="/">Forget password</Link>
         <button type='submit'>Login</button>
+        <Link to="/register">create an account?</Link>
         {error&&error}
       </form>
     </div>
