@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
+import { useQuery } from "react-query";
 import { gigs } from "../../../data";
 import GigCard from "../../components/GigCard/GigCard";
+import newRequest from "../../utils/newRequest";
 import "./Gigs";
 const Gigs = () => {
   
@@ -8,6 +10,11 @@ const Gigs = () => {
   const [open, setOpen]=useState(false);
   const minRef=useRef();
   const maxRef=useRef();
+  const { data, error, isLoading } = useQuery({
+      queryKey:['repoData'],
+      queryFn:()=>newRequest("/gigs")
+  });
+console.log(data);
   const reSort=(type)=>{
     setSort(type);
     setOpen(false);
