@@ -1,4 +1,4 @@
-.gig {
+.gigs {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@
         font-weight: 300;
         input {
           padding: 5px;
-          border: 1px solid lightgray;
+          border: 1px solid rgb(163, 15, 15);
           border-radius: 5px;
           outline: none;
           &::placeholder {
@@ -81,6 +81,11 @@
           }
         }
       }
+    }
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   }
 }

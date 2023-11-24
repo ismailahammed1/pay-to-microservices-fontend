@@ -93,7 +93,8 @@ export const card=[
       img: "https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699966686/download_ui42mx.jpg",
       cat: "Gardener",
       username: "Md. Ismail Ahammed"
-    },
+    }
+    ,
  
     {
       id: 4,

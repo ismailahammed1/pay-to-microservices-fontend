@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { gigs } from "../../../data";
 import GigCard from "../../components/GigCard/GigCard";
 import newRequest from "../../utils/newRequest";
-import "./Gigs";
+import "./Gigs.scss";
 const Gigs = () => {
   
   const [sort, setSort]=useState('seles');
@@ -56,12 +56,13 @@ console.log(data);
               </div>
             )}
           </div>
-          <div className="cards">
+       
+        </div>
+        <div className="cards">
             {gigs.map((gig)=>(
               <GigCard key={gig.id} item={gig}/>
             ))}
           </div>
-        </div>
       </div>
     </div>
   );
