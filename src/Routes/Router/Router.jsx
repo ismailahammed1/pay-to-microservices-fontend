@@ -26,8 +26,8 @@ const router = createBrowserRouter([
                 element:<Gigs></Gigs>
             },
             {
-                path:"/gig",
-                element:<Gig/>
+                path: "/gigs/gig/:id",
+                element: <Gig />,
             },
             {
                 path:"/message/:id",

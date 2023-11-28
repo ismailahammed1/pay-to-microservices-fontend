@@ -140,7 +140,8 @@ export const card=[
       cat: "Painter",
       username: "Md. Ismail Ahammed",
       star: 4,
-      price: 150
+      price: 150,
+      desc: "Teacher",
     },
     {
       id: 2,
@@ -149,7 +150,8 @@ export const card=[
       cat: "Construction",
       username: "Md. Ismail Ahammed",
       star: 4,
-      price: 156
+      price: 156,
+      desc: "Construction",
     },
     {
       id: 3,

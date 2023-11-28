@@ -45,7 +45,8 @@ const Navbar = () => {
           <Link to="/">English</Link>
          
           {!currentUser?.isSeller && <Link to="/">Become a Seller</Link>}  
-          {!currentUser &&  <button onClick={() => navigate("/login")}>Sign in</button>}
+          {!currentUser &&  <button onClick={() => navigate("/login")}>Sign up</button>}
+          {!currentUser &&  <button onClick={() => navigate("/register")}>Join</button>}
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
               <img src={currentUser.img||"/public/slideimg/as_is.jpg"} alt="" />
@@ -53,11 +54,12 @@ const Navbar = () => {
               {open && (
                 <div className="options">
                   {currentUser?.isSeller && (
-                    <>
-                      <Link to="/mygigs">Gigs</Link>
-                      <Link to="/add">Add New Gig</Link>
-                    </>
-                  )}
+  <>
+    <Link to="/mygigs">Gigs</Link>
+    <Link to="/add">Add New Gig</Link>
+  </>
+)}
+
                   <Link to="/orders">Order</Link>
                   <Link to="/messages">Messages</Link>
                   <Link onClick={handleLogout}>Logout</Link>

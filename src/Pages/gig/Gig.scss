@@ -51,7 +51,7 @@
           span {
             font-size: 14px;
             font-weight: bold;
-            color: #ffc108;
+            color: #000000;
           }
         }
       }
@@ -98,7 +98,7 @@
             flex-direction: column;
             gap: 10px;
 
-            .stars {
+            .star {
               display: flex;
               align-items: center;
               gap: 5px;
@@ -111,7 +111,7 @@
               span {
                 font-size: 14px;
                 font-weight: bold;
-                color: #f1da97;
+                color: #000000;
               }
             }
 
@@ -120,6 +120,14 @@
               border-radius: 5px;
               border: 1px solid gray;
               padding: 10px;
+              transition: 0.5 ease-in;
+              cursor: pointer;
+              &:hover {
+                background-color: #1dbf73;
+
+                color: white;
+                transition: width 0.52s linear ease-in-out;
+              }
             }
           }
         }
@@ -155,75 +163,7 @@
           }
         }
       }
-
-      .reviews {
-        margin-top: 50px;
-
-        .item {
-          width: 300px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          margin-bottom: 20px 0px;
-
-          .user {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-
-            .pp {
-              height: 50px;
-              width: 50px;
-              border-radius: 50%;
-            }
-
-            .country {
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              color: gray;
-
-              img {
-                width: 20px;
-              }
-            }
-          }
-
-          .star {
-            display: flex;
-            gap: 5px;
-
-            img {
-              height: 20px;
-              width: 20px;
-            }
-
-            span {
-              font-size: 14px;
-              font-weight: bold;
-              color: #ffc108;
-            }
-          }
-
-          .helpful {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            img {
-              width: 14px;
-            }
-          }
-        }
-
-        hr {
-          height: 0;
-          border: 0.5px solid lightgray;
-          margin: 50px 0px;
-        }
-      }
     }
-
     .right {
       flex: 1;
       border: 1px solid lightgray;
