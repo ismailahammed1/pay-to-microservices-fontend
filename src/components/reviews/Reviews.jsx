@@ -16,29 +16,38 @@ const Reviews = ({ gigId }) => {
     queryKey: ["reviews", gigId],
     queryFn: async () => {
       try {
-        const res = await newRequest.get(`/gig/reviews/${gigId}`);
-      return res.data;
+             const res = await newRequest.get(`gig/reviews/${gigId}`);
+        return res.data;
       } catch (err) {
         console.error("Error fetching reviews:", err);
         throw err;
       }
     },
   });
-  
 
   const mutation = useMutation({
-    mutationFn: (reviews) => newRequest.post("/reviews", reviews),
+    mutationFn: (review) => {
+      return newRequest.post(`/gig/reviews`, review); // Endpoint adjusted to /gig/reviews
+    },
     onSuccess: () => {
       queryClient.invalidateQueries(["reviews", gigId]);
     },
   });
+  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const desc = e.target[0].value;
-    const star = e.target[1].value;
-    mutation.mutate({ gigId, desc, star });
+    const desc = e.target.elements.desc.value;
+    const star = e.target.elements.star.value;
+  
+    try {
+      // Trigger the mutation with the review data
+      await mutation.mutateAsync({ gigId, desc, star });
+    } catch (error) {
+      console.error("Error creating review:", error);
+    }
   };
+  
 
   return (
     <div className="reviews">
@@ -52,8 +61,8 @@ const Reviews = ({ gigId }) => {
       <div className="add">
         <h3>Add a review</h3>
         <form action="" className="addForm" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Write your opinion" />
-          <select name="" id="">
+          <input type="text" name="desc" placeholder="Write your opinion" />
+          <select name="star" id="">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
