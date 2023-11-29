@@ -11,21 +11,25 @@ const Reviews = ({ gigId }) => {
   if (!gigId) {
     return <div>Error: Invalid gigId</div>;
   }
-  
+
   const { data, error, isLoading } = useQuery({
     queryKey: ["reviews", gigId],
-    queryFn: async ({ queryKey }) => {
-      const [, gigId] = queryKey; // Extract gigId from queryKey
-      const res = await newRequest.get(`/reviews/${gigId}`);
+    queryFn: async () => {
+      try {
+        const res = await newRequest.get(`/gig/reviews/${gigId}`);
       return res.data;
+      } catch (err) {
+        console.error("Error fetching reviews:", err);
+        throw err;
+      }
     },
   });
   
 
   const mutation = useMutation({
-    mutationFn: (reviews) => newRequest.post('/reviews', reviews),
+    mutationFn: (reviews) => newRequest.post("/reviews", reviews),
     onSuccess: () => {
-      queryClient.invalidateQueries(['reviews', gigId]);
+      queryClient.invalidateQueries(["reviews", gigId]);
     },
   });
 
@@ -39,14 +43,16 @@ const Reviews = ({ gigId }) => {
   return (
     <div className="reviews">
       <h2>Reviews</h2>
-      {isLoading ? "Loading..." : error ? "Something went wrong!" :
-        Array.isArray(data) && data.map((review) => (
-          <Review key={review._id} review={review} />
-        ))}
-    <div className="add">
-      <h3>Add a review</h3>
-      <form action="" className="addForm" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Write your opinion" />
+      {isLoading
+        ? "Loading..."
+        : error
+        ? "Something went wrong!"
+        : Array.isArray(data) &&
+          data.map((review) => <Review key={review._id} review={review} />)}
+      <div className="add">
+        <h3>Add a review</h3>
+        <form action="" className="addForm" onSubmit={handleSubmit}>
+          <input type="text" placeholder="Write your opinion" />
           <select name="" id="">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -54,9 +60,9 @@ const Reviews = ({ gigId }) => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };
