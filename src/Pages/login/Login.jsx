@@ -18,9 +18,8 @@ const Login = () => {
       localStorage.setItem("currentUser", JSON.stringify(res.data));
       navigate('/');
     } catch (err) {
- 
-      setError(err.response.data);
-      console.error('Login Errorsdfaaaaaaaaa:', err.response.data);
+      console.error('Login Error:', err);
+      setError(`[${err.response.status}] ${err.response.data.message || 'An error occurred during login.'}`);
     }
     
   }
