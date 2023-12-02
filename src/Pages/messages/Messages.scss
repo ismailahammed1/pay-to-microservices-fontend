@@ -21,13 +21,15 @@
 
     table {
       width: 100%;
-
-      tr {
-        height: 100px;
-        th {
-          text-align: left;
+      thead {
+        tr {
+          height: 100px;
+          th {
+            text-align: left;
+          }
         }
-
+      }
+      tbody {
         td {
           padding: 10px;
 

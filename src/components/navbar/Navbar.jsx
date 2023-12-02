@@ -7,8 +7,8 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  
-  const navigate=useNavigate();
+
+  const navigate = useNavigate();
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
   };
@@ -20,18 +20,24 @@ const Navbar = () => {
     };
   }, []);
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  let currentUser = localStorage.getItem("currentUser");
+
+  try {
+    currentUser = JSON.parse(currentUser) || null;
+  } catch (error) {
+    console.error("Error parsing 'currentUser' from localStorage:", error);
+    currentUser = null;
+  }
 
   const handleLogout = async () => {
     try {
       await newRequest.post("/auth/logout");
-      localStorage.setItem("currentUser", null); // Corrected localStorage item name
+      localStorage.removeItem("currentUser"); // Corrected to removeItem
       navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
-  
 
   return (
     <div className={active ? "navbar active" : "navbar"}>
@@ -43,22 +49,23 @@ const Navbar = () => {
           <Link to="/">Business</Link>
           <Link to="/">explore</Link>
           <Link to="/">English</Link>
-         
-          {!currentUser?.isSeller && <Link to="/">Become a Seller</Link>}  
-          {!currentUser &&  <button onClick={() => navigate("/login")}>Sign up</button>}
-          {!currentUser &&  <button onClick={() => navigate("/register")}>Join</button>}
+
+          {!currentUser?.isSeller && <Link to="/">Become a Seller</Link>}
+          {!currentUser && <button onClick={() => navigate("/login")}>Sign up</button>}
+          {!currentUser && <button onClick={() => navigate("/register")}>Join</button>}
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
-              <img src={currentUser.img||"/public/slideimg/as_is.jpg"} alt="" />
-              <a >{currentUser?.username}</a>
+              <img src={currentUser.img || "/public/slideimg/as_is.jpg"} alt="" />
+              <a>{currentUser?.username || "Guest"}</a>
+
               {open && (
                 <div className="options">
                   {currentUser?.isSeller && (
-  <>
-    <Link to="/mygigs">Gigs</Link>
-    <Link to="/add">Add New Gig</Link>
-  </>
-)}
+                    <>
+                      <Link to="/mygigs">Gigs</Link>
+                      <Link to="/add">Add New Gig</Link>
+                    </>
+                  )}
 
                   <Link to="/orders">Order</Link>
                   <Link to="/messages">Messages</Link>
@@ -79,7 +86,7 @@ const Navbar = () => {
             <Link to="/">Electricians</Link>
             <Link to="/">Heavy Equipment Operators</Link>
             <Link to="/">Transportation </Link>
-            <Link to="/">Construction  </Link>
+            <Link to="/">Construction </Link>
             <Link to="/">Plumber</Link>
           </div>
           <hr />

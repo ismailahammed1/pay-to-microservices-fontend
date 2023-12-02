@@ -30,7 +30,7 @@ const router = createBrowserRouter([
                 element: <Gig />,
             },
             {
-                path:"/message/:id",
+                path: "/message/:id",
                 element:<Message/>
             },
             {

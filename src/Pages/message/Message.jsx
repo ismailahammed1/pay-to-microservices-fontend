@@ -1,193 +1,73 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { Link, useParams } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 import "./Message.scss";
 
 const Message = () => {
+  const { id } = useParams();
+  console.log("Message Component ID:", id);
+  
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const queryClient = useQueryClient();
+
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["messages"],
+    queryFn: async () => {
+      const response = await newRequest.get(`/messages/${id}`);
+      console.log("Orders Data:", response);
+      return response.data;
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: (message) => {
+      return newRequest.post(`/messages`, message);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["messages"]);
+    },
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    mutation.mutate({
+      conversationId: id,
+      desc: e.target[0].value,
+    });
+    e.target[0].value = "";
+  };
   return (
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
-          <Link to="/messages">Messages &gt;</Link>Jhon Doe &gt;
+          <Link to={`/messages/${id}`}>Messages &gt;</Link>Jhon Doe &gt;
         </span>
-      <div className="messages">
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-        <div className="item">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"></img>
-          <p>
-            222222222222222222i eum id dolorem tenetur tempore non minus! Tempore
-            quaerat velit eius at facilis adipisci, totam architecto molestiae
-            sdffffffffffff😮 
-          </p>
-        </div>
-        <div className="item owner">
-          <img src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1699856528/photo-md-a_tf2glo.jpg" alt="User Avatar"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            nostrum in eum molestias minus quos, repellendus consectetur dolorem
-            laudantium cum. Expedita perferendis asperiores iste assumenda
-            tempora in, atque quidem neque!
-          </p>
-        </div>
-  </div>
+        {isLoading ? (
+          "loading"
+        ) : error ? (
+          "error"
+        ) : (
+          <div className="messages">
+            { data.map((m)=>( 
+            <div className={m.userId === currentUser._id ? "owner item" : "item"} key={m._id}>
+              <img
+                src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700945627/png-clipart-computer-icons-avatar-user-profile-blog-personal-heroes-recruiter_ioy4sg.png"
+                alt="User Avatar"
+              ></img>
+              <p>
+                {m.desc}
+              </p>
+            </div>
+            ))}
+          </div>
+        )}
         <hr />
-        <div className="write">
+        <form className="write" onSubmit={handleSubmit}>
           <textarea type="text" placeholder="Type your message here"></textarea>
           <button>Send</button>
-        </div>
-    
-    </div>
+        </form>
+      </div>
     </div>
   );
 };
