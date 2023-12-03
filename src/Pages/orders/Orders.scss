@@ -1,15 +1,23 @@
+// Orders.scss
+
 .orders {
   display: flex;
   justify-content: center;
   color: #555;
 
   .container {
-    width: 1400px;
-    padding: 50px 0px;
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 50px 0;
 
     .title {
       display: flex;
       justify-content: space-between;
+
+      h1 {
+        font-size: 24px; /* Adjust the font size as needed */
+      }
+
       button {
         background-color: #1dbf73;
         color: white;
@@ -22,40 +30,36 @@
 
     table {
       width: 100%;
-      border-spacing: 0 10px; // Adjust the second value (10px) to control the vertical gap
+      border-collapse: collapse; /* Ensure no space between table cells */
 
-      tr {
-        height: 100px;
-        margin-bottom: 10px;
+      th,
+      td {
+        padding: 12px; /* Adjust padding as needed */
+        text-align: left;
+      }
 
-        th {
-          text-align: left;
+      th {
+        background-color: #f2f2f2; /* Add background color to header cells */
+      }
 
-          &:first-child {
-            padding-right: 20px; // Add extra padding to the first th to control the horizontal gap
+      tbody {
+        tr {
+          td {
+            img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+            }
+
+            .message {
+              width: 50px;
+              cursor: pointer;
+            }
           }
-        }
 
-        td {
-          font-size: 20px;
-          sup {
-            font-size: 12px;
+          &:nth-child(odd) {
+            background-color: #1dbf730f;
           }
-
-          .image {
-            width: 180px;
-            height: 100px; // Fixed typo here
-            object-fit: cover;
-          }
-
-          .message {
-            width: 50px;
-            cursor: pointer;
-          }
-        }
-
-        &:nth-child(even) {
-          background-color: #1dbf730f;
         }
       }
     }

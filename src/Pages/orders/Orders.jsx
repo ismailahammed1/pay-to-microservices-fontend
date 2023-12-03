@@ -9,12 +9,16 @@ const Orders = () => {
   const navigate = useNavigate();
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["order"],
+    queryKey: ["orders"],
     queryFn: async () => {
-      const response = await newRequest.get(`/orders`)
-        console.log('Orders Data:', response);
+      try {
+        const response = await newRequest.get(`/orders`);
+        console.log("Orders Data:", response.data);
         return response.data;
-      
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+        throw error;
+      }
     },
   });
 
@@ -24,7 +28,8 @@ const Orders = () => {
     const id = sellerId + buyerId;
 
     try {
-      const res = await newRequest.get(`/conversations/singel/${id}`);
+      const res = await newRequest.get(`/conversations/single/${id}`);
+
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
@@ -41,7 +46,7 @@ const Orders = () => {
       {isLoading ? (
         "loading"
       ) : error ? (
-        "error"
+        `error: ${error.message || "An error occurred"}`
       ) : (
         <div className="container">
           <div className="title">
@@ -53,7 +58,7 @@ const Orders = () => {
                 <th>Image</th>
                 <th>Title</th>
                 <th>Price</th>
-                <th>{currentUser?.isSeller ? "Buyer" : "Seller"}</th>
+            
                 <th>Contact</th>
               </tr>
             </thead>
@@ -61,11 +66,7 @@ const Orders = () => {
               {data?.map((order) => (
                 <tr key={order._id}>
                   <td>
-                    <img
-                      src={order.img}
-                      alt=""
-                      className="image"
-                    />
+                    <img src={order.img} alt="" className="image" />
                   </td>
                   <td>{order.title}</td>
                   <td>
