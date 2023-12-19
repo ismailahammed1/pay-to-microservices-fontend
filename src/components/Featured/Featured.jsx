@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Featured.scss";
 
 const Featured = () => {
@@ -18,6 +19,12 @@ const Featured = () => {
 
     return () => clearInterval(intervalId);
   }, [images.length]);
+
+  const [input,setInput]=useState("");
+  const navigate=useNavigate()
+  const handleSubmit=()=>{
+    navigate(`/gigs?search=${input}`)
+  }
   return (
     <div className="featured">
       <div className="container">
@@ -28,9 +35,11 @@ const Featured = () => {
           <div className="search">
             <div className="searchInput">
               <img src="../../../public/img/pngwing.com.png" alt="" />
-              <input type="text" placeholder='Try"TO building mobile app"' />
+              <input type="text" placeholder='Try"TO building mobile app"' 
+              onChange={(e)=>setInput(e.target.value)}
+              />
             </div>
-            <button>Search</button>
+            <button onClick={handleSubmit}>Search</button>
           </div>
           <div className="popular">
             <button>Hardware</button>

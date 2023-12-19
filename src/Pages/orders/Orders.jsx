@@ -10,26 +10,19 @@ const Orders = () => {
 
   const { data, error, isLoading } = useQuery({
     queryKey: ["orders"],
-    queryFn: async () => {
-      try {
-        const response = await newRequest.get(`/orders`);
-        console.log("Orders Data:", response.data);
-        return response.data;
-      } catch (error) {
-        console.error("Error fetching orders:", error);
-        throw error;
-      }
-    },
+    queryFn: async () => newRequest.get(`/orders`).then((res)=>{
+      return res.data;
+    })
   });
 
   const handleContact = async (order) => {
     const sellerId = order.sellerId;
     const buyerId = order.buyerId;
-    const id = sellerId + buyerId;
-
+    const id = `${sellerId}_${buyerId}`;
+    console.log("Contact ID:", id);
+  
     try {
       const res = await newRequest.get(`/conversations/single/${id}`);
-
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
@@ -40,6 +33,7 @@ const Orders = () => {
       }
     }
   };
+  
 
   return (
     <div className="orders">
@@ -58,7 +52,6 @@ const Orders = () => {
                 <th>Image</th>
                 <th>Title</th>
                 <th>Price</th>
-            
                 <th>Contact</th>
               </tr>
             </thead>

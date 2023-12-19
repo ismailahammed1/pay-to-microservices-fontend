@@ -1,71 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Message.scss";
 
 const Message = () => {
-  const { id } = useParams();
-  console.log("Message Component ID:", id);
-  
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
+  const { id } = useParams();
   const queryClient = useQueryClient();
 
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["messages"],
-    queryFn: async () => {
-      const response = await newRequest.get(`/messages/${id}`);
-      console.log("Orders Data:", response);
-      return response.data;
-    },
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["messages", id],
+    queryFn: () => newRequest.get(`/messages/${id}`).then((res) => res.data),
   });
 
-  const mutation = useMutation({
-    mutationFn: (message) => {
-      return newRequest.post(`/messages`, message);
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries(["messages"]);
-    },
-  });
+  const [newMessage, setNewMessage] = useState("");
+
+  const mutation = useMutation(
+    (message) => newRequest.post(`/messages`, message),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["messages"]);
+        setNewMessage(""); // Clear the input after sending the message
+      },
+    }
+  );
+
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate({
       conversationId: id,
-      desc: e.target[0].value,
+      desc: newMessage,
     });
-    e.target[0].value = "";
   };
+
+  if (isLoading) return "Loading...";
+  if (error) return "Error: " + error.message;
+
   return (
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
-          <Link to={`/messages/${id}`}>Messages &gt;</Link>Jhon Doe &gt;
+          <Link to={`/message/${id}`}>Messages</Link> John Doe
         </span>
-        {isLoading ? (
-          "loading"
-        ) : error ? (
-          "error"
-        ) : (
-          <div className="messages">
-            { data.map((m)=>( 
-            <div className={m.userId === currentUser._id ? "owner item" : "item"} key={m._id}>
+        <div className="messages">
+          {data.map((m) => (
+            <div
+              className={m.userId === currentUser._id ? "owner item" : "item"}
+              key={m._id}
+            >
               <img
-                src="https://res.cloudinary.com/dfn1s2ysa/image/upload/v1700945627/png-clipart-computer-icons-avatar-user-profile-blog-personal-heroes-recruiter_ioy4sg.png"
-                alt="User Avatar"
-              ></img>
-              <p>
-                {m.desc}
-              </p>
+                src={m.userId === currentUser._id ? currentUser.img : m.img}
+                alt=""
+              />
+            
+
+              <p>{m.desc}</p>
             </div>
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
         <hr />
         <form className="write" onSubmit={handleSubmit}>
-          <textarea type="text" placeholder="Type your message here"></textarea>
-          <button>Send</button>
+          <textarea
+            type="text"
+            placeholder="Write a message"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+          />
+          <button type="submit">Send</button>
         </form>
       </div>
     </div>

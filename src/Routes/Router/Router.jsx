@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Pages/Layout/MainLayout";
+import Pay from "../../Pages/Pay/Pay";
+import Success from "../../Pages/Success";
 import Add from "../../Pages/add/Add";
 import Gig from "../../Pages/gig/Gig";
 import Gigs from "../../Pages/gigs/Gigs";
@@ -30,14 +32,13 @@ const router = createBrowserRouter([
                 element: <Gig />,
             },
             {
-                path: "/message/:id",
-                element:<Message/>
+                path:"/message/:id",
+                element: <Message/>,
             },
             {
                 path:"/messages",
                 element:<Messages/>
             },
-    
             {
                 path:"/register",
                 element:<Register/>
@@ -52,12 +53,20 @@ const router = createBrowserRouter([
                 element:<Add/>
             },
             {
+                path:"/mygigs",
+                element:<MyGigs/>
+            },
+            {
                 path:"/orders",
                 element:<Orders/>
             },
             {
-                path:"/mygigs",
-                element:<MyGigs/>
+                path:"/pay/:id",
+                element:<Pay/>
+            },
+            {
+                path:"/success",
+                element:<Success/>
             },
         ]
        

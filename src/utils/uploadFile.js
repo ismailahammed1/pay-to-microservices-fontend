@@ -6,7 +6,8 @@ const uploadFile=async(file)=>{
     data.append("upload_preset", "Pay2microServices");
 
     try {
-        const res=await axios.post("https://api.cliudinary.com/v1_1/dfn1s2ysa/image/upload",data)
+        const res = await axios.post("https://api.cloudinary.com/v1_1/dfn1s2ysa/image/upload", data);
+
         const {url}=res.data;
         return url;
     } catch (error) {
